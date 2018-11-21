@@ -10,8 +10,14 @@ import (
 )
 
 type streamList struct {
-	Streams      int `json:"streams"`
-	TotalViewers int `json:"total_viewers"`
+	Strims       []stream `json:"stream_list"`
+	Streams      int      `json:"streams"`
+	TotalViewers int      `json:"total_viewers"`
+}
+
+type stream struct {
+	Username string `json:"username"`
+	Viewers  int    `json:"viewers"`
 }
 
 func main() {
@@ -45,5 +51,6 @@ func main() {
 	}
 	fmt.Println("Total viewer count: ", streams.TotalViewers)
 	fmt.Println("Stream count: ", streams.Streams)
+	fmt.Println(streams.Strims)
 
 }

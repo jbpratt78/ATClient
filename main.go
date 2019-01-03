@@ -38,7 +38,7 @@ func main() {
 	if getErr != nil {
 		log.Fatal(getErr)
 	}
-
+	// careful, ReadAll() can hang waiting on response
 	body, readErr := ioutil.ReadAll(res.Body)
 	if readErr != nil {
 		log.Fatal(readErr)
